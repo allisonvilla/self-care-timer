@@ -42,9 +42,8 @@ timerApp.init = function() {
     
 }
 
-// Create a countdown timer
+// Use form to store timer duration from user then run countdown() on submit
 
-// These values will be visible on UI
 timerApp.minutes = 2; // User will be able to determine duration
 timerApp.seconds = 60;
 
@@ -53,16 +52,19 @@ timerApp.countdown = function() {
     const minutesEl = document.querySelector('#minutes');
 
     interval = setInterval(function() {
-        minutesEl.textContent = `${timerApp.minutes}`;
+        // Seconds variable goes down by 1 every second
         timerApp.seconds--; 
+        minutesEl.textContent = `${timerApp.minutes}`;
         secondsEl.textContent = `${timerApp.seconds}`; 
 
         if (timerApp.seconds === 0) {
+            // Once seconds reaches 0, deduct 1 from minutes
             timerApp.minutes--; 
             timerApp.seconds = 60; 
             minutesEl.textContent = `${timerApp.minutes}`;
     
             if (timerApp.minutes < 1) {
+                // Stop counting down once time runs out
                 clearInterval(interval);
                 console.log('Timer is done!');
             }
@@ -70,8 +72,6 @@ timerApp.countdown = function() {
     }, 100); // Temporarily changed from 1000ms for testing purposes
 }
 timerApp.countdown(); 
-
-// Use form to store timer duration from user then run countdown() on submit
 
 // Make things happen when timer ends
     // Window comes into focus
