@@ -36,9 +36,9 @@ timerApp.init = function() {
 
 // Create a countdown timer
 
-timerApp.duration = 1; // User will be able to determine duration
+// These values will be visible on UI
+timerApp.minutes = 2; // User will be able to determine duration
 timerApp.seconds = 60;
-timerApp.minutes = timerApp.duration - 1; 
 
 timerApp.countdown = function() {
     interval = setInterval(function() {
@@ -50,35 +50,20 @@ timerApp.countdown = function() {
             timerApp.seconds = 60; 
             console.log(timerApp.minutes);
     
-            if(timerApp.minutes < 0) {
+            if (timerApp.minutes < 1) {
                 clearInterval(interval);
                 console.log('Timer is done!');
             }
         }
-    }, 100); // Temporarily changed from 1000ms for testing purposes
+    }, 10); // Temporarily changed from 1000ms for testing purposes
 }
 timerApp.countdown(); 
-console.log(timerApp.duration);
-
-// OLD TIMER (haha)
-// timerApp.countdown = function(minutes) {
-//     timerApp.seconds += minutes * 60; 
-
-//     interval = setInterval(function() {
-//         timerApp.seconds--; 
-//         console.log(timerApp.seconds);
-
-//         if (timerApp.seconds === 0) {
-//             clearInterval(interval); 
-//             console.log("Timer is done!"); 
-//         }
-//     }, 1000); 
-// }
 
 // Use form to store timer duration from user then run countdown() on submit
 
 // Make things happen when timer ends
     // Window comes into focus
+    // Send a notification (if possible?)
     // Background colour changes
     // Self-care suggestion appears on screen
 
