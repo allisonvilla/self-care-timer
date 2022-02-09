@@ -21,30 +21,59 @@ timerApp.care = [
     'have dessert!', 
     'do some yoga!', 
     'watch a funny video!', 
+    'enjoy a baked good!', 
+    'order in your favourite food!',
+    'thank yourself for working so hard!',
+    'listen to a podcast!',
+    'sing some karaoke!'
 ]
 // Select a random suggestion that is printed at the end of the timer
 
 timerApp.init = function() {
     console.log("Sup girl");
-    timerApp.seconds = 0; 
-    timerApp.countdown(1); 
+    
 }
 
 // Create a countdown timer
 
-timerApp.countdown = function(minutes) {
-    timerApp.seconds += minutes * 60; 
+timerApp.duration = 1; // User will be able to determine duration
+timerApp.seconds = 60;
+timerApp.minutes = timerApp.duration - 1; 
 
+timerApp.countdown = function() {
     interval = setInterval(function() {
         timerApp.seconds--; 
         console.log(timerApp.seconds);
 
         if (timerApp.seconds === 0) {
-            clearInterval(interval); 
-            console.log("Timer is done!"); 
+            timerApp.minutes--; 
+            timerApp.seconds = 60; 
+            console.log(timerApp.minutes);
+    
+            if(timerApp.minutes < 0) {
+                clearInterval(interval);
+                console.log('Timer is done!');
+            }
         }
-    }, 1000); 
+    }, 100); // Temporarily changed from 1000ms for testing purposes
 }
+timerApp.countdown(); 
+console.log(timerApp.duration);
+
+// OLD TIMER (haha)
+// timerApp.countdown = function(minutes) {
+//     timerApp.seconds += minutes * 60; 
+
+//     interval = setInterval(function() {
+//         timerApp.seconds--; 
+//         console.log(timerApp.seconds);
+
+//         if (timerApp.seconds === 0) {
+//             clearInterval(interval); 
+//             console.log("Timer is done!"); 
+//         }
+//     }, 1000); 
+// }
 
 // Use form to store timer duration from user then run countdown() on submit
 
