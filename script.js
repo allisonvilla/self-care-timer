@@ -39,7 +39,6 @@ timerApp.care = [
 
 timerApp.init = function() {
     console.log("Sup girl");
-    
 }
 
 // Use form to store timer duration from user then run countdown() on submit
@@ -66,19 +65,19 @@ timerApp.countdown = function() {
             if (timerApp.minutes < 1) {
                 // Stop counting down once time runs out
                 clearInterval(interval);
-                console.log('Timer is done!');
             }
         }
     }, 100); // Temporarily changed from 1000ms for testing purposes
 }
 timerApp.countdown(); 
 
+// Add a pause button that pauses the timer
+// Add a reset button that resets the timer
+
 // Make things happen when timer ends
     // Window comes into focus
     // Send a notification (if possible?)
     // Background colour changes
     // Self-care suggestion appears on screen
-
-// Add a reset button that reloads the page
 
 timerApp.init(); 

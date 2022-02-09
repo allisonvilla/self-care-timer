@@ -4,15 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
     <title>Self-Care Timer 💖⏰</title>
 </head>
 <body>
     <main>
-        <h1>Self-Care Timer 💖⏰</h1>
-        <h2><span id="minutes">0</span> minutes and <span id="seconds">0</span> seconds left</h2>
-    </main>
-    <footer>
+        <div class="wrapper">
+            <!-- About -->
+            <div class="top">
+                <h1>Self-Care Timer 💖⏰</h1>
+                <p>When we're busy, it can be easy to get caught up in our work and forget to take care of ourselves.</p>
+                <p>Set a timer for your work period below then receive a self-care suggestion on how to spend your hard-earned break once it's done. 😊</p>
+            </div> <!-- END .top -->
 
+            <!-- Timer Info -->
+            <div class="timer-info">
+                <h2><span id="minutes">0</span> minutes and <span id="seconds">0</span> seconds left</h2>
+            </div> <!-- END .timer-info -->
+
+            <!-- Timer Input Form -->
+            <form>
+                <label for="time-input">How many minutes will your focus-time be?</label>
+                <input type="number" name="time-input" id="time-input" value="25" required>
+                <button id="time-btn">Start Timer</button>
+            </form>
+
+            <!-- Control Buttons -->
+            <div class="control-buttons">
+                <button id="pause-btn">Pause Timer</button>
+                <button id="reset-btn">Reset Timer</button>
+            </div> <!-- END .control-buttons -->
+        </div> <!-- END .wrapper -->
+    </main>
+
+    <footer>
+        <p>Made with 💕 by Allison Villa</p>
+        <p class="small-copy">You can view this app's code <a href="https://github.com/allisonvilla/self-care-timer">here</a></p>
     </footer>
 
     <!-- Link to JavaScript -->
