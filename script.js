@@ -1,6 +1,13 @@
 const timerApp = {}
 
-// Create an array that contains self care suggestions
+// Array containing sentence starters before suggestion
+timerApp.beforeCare = [
+    'Why don\'t you ',
+    'It\'s time to ',
+    'You deserve to ',
+]
+
+// Array containing self care suggestions
 timerApp.care = [
     'listen to your favourite song!',
     'look outside and rest your eyes!',
@@ -25,9 +32,10 @@ timerApp.care = [
     'order in your favourite food!',
     'thank yourself for working so hard!',
     'listen to a podcast!',
-    'sing some karaoke!'
+    'sing some karaoke!',
+    'eat something yummy!'
 ]
-// Select a random suggestion that is printed at the end of the timer
+// Select a random suggestion that is printed when the timer reaches zero
 
 timerApp.init = function() {
     console.log("Sup girl");
@@ -41,21 +49,25 @@ timerApp.minutes = 2; // User will be able to determine duration
 timerApp.seconds = 60;
 
 timerApp.countdown = function() {
+    const secondsEl = document.querySelector('#seconds'); 
+    const minutesEl = document.querySelector('#minutes');
+
     interval = setInterval(function() {
+        minutesEl.textContent = `${timerApp.minutes}`;
         timerApp.seconds--; 
-        console.log(timerApp.seconds);
+        secondsEl.textContent = `${timerApp.seconds}`; 
 
         if (timerApp.seconds === 0) {
             timerApp.minutes--; 
             timerApp.seconds = 60; 
-            console.log(timerApp.minutes);
+            minutesEl.textContent = `${timerApp.minutes}`;
     
             if (timerApp.minutes < 1) {
                 clearInterval(interval);
                 console.log('Timer is done!');
             }
         }
-    }, 10); // Temporarily changed from 1000ms for testing purposes
+    }, 100); // Temporarily changed from 1000ms for testing purposes
 }
 timerApp.countdown(); 
 
@@ -66,5 +78,7 @@ timerApp.countdown();
     // Send a notification (if possible?)
     // Background colour changes
     // Self-care suggestion appears on screen
+
+// Add a reset button that reloads the page
 
 timerApp.init(); 
