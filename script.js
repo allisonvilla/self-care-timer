@@ -45,35 +45,33 @@ timerApp.care = [
 
 timerApp.init = function() {
     console.log("Sup girl");
-
-    // Initialize seconds and minutes
-    timerApp.seconds = 0;
-    timerApp.minutes = 0;
-
-    // Form elements
-    timerApp.timeInputEl = document.querySelector('#time-input');
-    timerApp.timeButtonEl = document.querySelector('#time-btn');
-    // Control buttons
-    timerApp.pauseButtonEl = document.querySelector('#pause-btn');
-    timerApp.resumeButtonEl = document.querySelector('#resume-btn');
-    timerApp.resetButtonEl = document.querySelector('#reset-btn');
-    // Seconds and minutes display
-    timerApp.secondsEl = document.querySelector('#seconds');
-    timerApp.minutesEl = document.querySelector('#minutes');
-
-    // Reset button stops and resets the timer
-    timerApp.resetButtonEl.addEventListener('click', timerApp.reset()); 
+    // What should go in here??
 }
 
+// Initialize seconds and minutes
+timerApp.seconds = 0;
+timerApp.minutes = 0;
+
+// Form elements
+timerApp.formEl = document.querySelector('form'); 
+timerApp.timeInputEl = document.querySelector('#time-input');
+timerApp.timeButtonEl = document.querySelector('#time-btn');
+// Control buttons
+timerApp.pauseButtonEl = document.querySelector('#pause-btn');  
+timerApp.resumeButtonEl = document.querySelector('#resume-btn');
+timerApp.resetButtonEl = document.querySelector('#reset-btn');
+// Seconds and minutes display
+timerApp.secondsEl = document.querySelector('#seconds');
+timerApp.minutesEl = document.querySelector('#minutes');
+
 // Use form to store timer duration from user then run countdown() on submit
-timerApp.formEl = document.querySelector('form');
 timerApp.formEl.addEventListener('submit', function(event) {
-    event.preventDefault();
-    timerApp.seconds = 60;
+    event.preventDefault(); 
+    timerApp.seconds = 60; 
     // Store user's time input into minutes variable
-    timerApp.minutes = timerApp.timeInputEl.value - 1;
+    timerApp.minutes = timerApp.timeInputEl.value - 1; 
     // Run countdown function
-    timerApp.countdown();
+    timerApp.countdown(); 
 }); 
 
 timerApp.countdown = function() {
@@ -106,13 +104,15 @@ timerApp.countdown = function() {
 
 // Add a pause button that pauses the timer
 
-timerApp.reset = function() {
+
+// Reset button stops and resets the timer
+timerApp.resetButtonEl.addEventListener('click', function() {
     timerApp.formEl.reset();
     clearInterval(interval);
-    timerApp.seconds = 0;
+    timerApp.seconds = 0; 
     timerApp.secondsEl.textContent = `${timerApp.seconds}`;
     timerApp.minutesEl.textContent = `${timerApp.minutes}`;
-}
+}); 
 
 // Make things happen when timer ends
     // Window comes into focus
