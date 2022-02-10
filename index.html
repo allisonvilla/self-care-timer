@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Yeseva+One&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
-    <title>Self-Care Timer 💖⏰</title>
+    <title>A Productivity Timer That Cares 💖</title>
 </head>
 <body>
     <main>
@@ -25,7 +29,7 @@
             <!-- Timer Input Form -->
             <form>
                 <label for="time-input">How many minutes will your focus-time be?</label>
-                <input type="number" name="time-input" id="time-input" required>
+                <input type="number" name="time-input" id="time-input" min="1" required>
                 <button id="time-btn">Start Timer</button>
             </form>
 

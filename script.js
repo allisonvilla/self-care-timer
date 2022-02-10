@@ -1,6 +1,6 @@
 const timerApp = {}
 
-// Array containing sentence starters before suggestion
+// Array containing affirmations before care suggestion
 timerApp.beforeCare = [
     'Amazing job',
     'You did it',
@@ -9,12 +9,14 @@ timerApp.beforeCare = [
     'You did great',
     'Nice productivity', 
     'What a great work session',
+    'Incredible job', 
+    'Nice work', 
 ]
 
 // Array containing self care suggestions
 timerApp.care = [
     'listen to your favourite song',
-    'look outside and rest your eyes',
+    'look outside to rest your eyes',
     'drink a glass of water',
     'stretch your legs', 
     'enjoy a cup of tea', 
@@ -38,7 +40,10 @@ timerApp.care = [
     'sing some karaoke',
     'eat something yummy',
     'compliment yourself in the mirror', 
-    'lie down for a bit'
+    'lie down for a bit',
+    'breathe some fresh air',
+    'do some yoga',
+    'meditate'
 ]
 
 // Seconds and minutes
@@ -145,11 +150,11 @@ timerApp.countdown = function() {
                 const beforeCareSuggest = timerApp.arrayRandomizer(timerApp.beforeCare);
                 const careSuggest = timerApp.arrayRandomizer(timerApp.care);
                 // Display self-care suggestion
-                timerApp.beforeCareEl.textContent = `${beforeCareSuggest}! `;
+                timerApp.beforeCareEl.textContent = `${beforeCareSuggest}! 🙌 `;
                 timerApp.careEl.textContent = `Take a break and ${careSuggest}.`;
                 // Play notification sound
                 document.querySelector('audio').play();
             }
         }
-    }, 1000); // Temporarily changed from 1000ms for testing purposes
+    }, 1000);
 }
