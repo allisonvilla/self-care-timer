@@ -1,6 +1,6 @@
 const timerApp = {}
 
-// Array containing affirmations before care suggestion
+// Array containing affirmations to precede care suggestions
 timerApp.beforeCare = [
     'Amazing job',
     'You did it',
@@ -22,11 +22,11 @@ timerApp.care = [
     'enjoy a cup of tea', 
     'go for a walk',
     'enjoy a snack',
-    'look at cute animal pics', 
+    'look at some cute animal pics', 
     'call a friend to catch up', 
-    'take a bubble bath', 
+    'have a bubble bath', 
     'play a video game',
-    'take a nap', 
+    'have a nap', 
     'watch an episode of your show', 
     'pat yourself on the back', 
     'celebrate your accomplishments', 
@@ -134,7 +134,7 @@ timerApp.countdown = function() {
                 timerApp.minutes--;
                 // Reset seconds to 60
                 timerApp.seconds = 60; 
-            // Do not deduct from minutes if >= 0 
+            // Do not deduct from minutes if <= 0 
             } else {
                 timerApp.minutes = timerApp.minutes; 
             }

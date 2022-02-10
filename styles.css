@@ -21,18 +21,21 @@ html {
 }
 
 main {
-    padding-top: 20px;
-    padding-bottom: 20px;
     height: 90vh;
+    background-color: #82C0CC;
 }
 
 .wrapper {
     width: 90%; 
+    height: 100%; 
     max-width: 1200px; 
     margin: 0 auto; 
     display: flex;
     flex-direction: column; 
     justify-content: space-between;
+    align-items: center; 
+    padding-top: 75px;
+    padding-bottom: 20px;
 }
 
 h1,
@@ -53,10 +56,15 @@ p {
     font-weight: 300; 
 }
 
+.wrapper > div {
+    background-color: #f7f4f2; 
+}
+
 /* Form Styles */
 form {
     font-family: 'Roboto', sans-serif;
     font-weight: 300; 
+    background-color: #fdfcfc; 
 }
 
 input {
@@ -66,7 +74,7 @@ input {
 }
 
 input:focus {
-    border-bottom: 4px solid black; 
+    border-bottom: 4px solid #FFA62B; 
 }
 
 /* Button Styles */
@@ -114,5 +122,5 @@ a {
 
 a:hover,
 a:focus {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #FFA62B;
 }
