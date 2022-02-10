@@ -1,3 +1,8 @@
+// Concepts I learned/practiced through this project
+    // ✔ Namespacing
+    // ✔ Array methods
+    // ✔ setInterval() method
+
 const timerApp = {}
 
 // Array containing sentence starters before suggestion
@@ -33,28 +38,43 @@ timerApp.care = [
     'thank yourself for working so hard!',
     'listen to a podcast!',
     'sing some karaoke!',
-    'eat something yummy!'
+    'eat something yummy!',
+    'compliment yourself in the mirror!'
 ]
 // Select a random suggestion that is printed when the timer reaches zero
 
 timerApp.init = function() {
     console.log("Sup girl");
+    // Store some DOM elements in variables 
+    timerApp.timeInputEl = document.querySelector('#time-input'); 
+    timerApp.timeButtonEl = document.querySelector('#time-btn'); 
+    timerApp.pauseButtonEl = document.querySelector('#pause-btn'); 
+    timerApp.resetButtonEl = document.querySelector('#reset-btn'); 
+    // Initialize seconds and minutes so they are available throughout namespace
+    timerApp.seconds = 0;
+    timerApp.minutes = 0;
 }
 
 // Use form to store timer duration from user then run countdown() on submit
-
-timerApp.minutes = 2; // User will be able to determine duration
-timerApp.seconds = 60;
+timerApp.formEl = document.querySelector('form'); 
+timerApp.formEl.addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    timerApp.seconds = 60; 
+    // Store user's time input into minutes variable
+    timerApp.minutes = timerApp.timeInputEl.value - 1; 
+    // Run countdown function
+    timerApp.countdown(); 
+}); 
 
 timerApp.countdown = function() {
     const secondsEl = document.querySelector('#seconds'); 
     const minutesEl = document.querySelector('#minutes');
 
     interval = setInterval(function() {
-        // Seconds variable goes down by 1 every second
+        // This code executes every second (or 1000ms, specified below)
         timerApp.seconds--; 
-        minutesEl.textContent = `${timerApp.minutes}`;
         secondsEl.textContent = `${timerApp.seconds}`; 
+        minutesEl.textContent = `${timerApp.minutes}`;
 
         if (timerApp.seconds === 0) {
             // Once seconds reaches 0, deduct 1 from minutes
@@ -69,7 +89,6 @@ timerApp.countdown = function() {
         }
     }, 100); // Temporarily changed from 1000ms for testing purposes
 }
-timerApp.countdown(); 
 
 // Add a pause button that pauses the timer
 // Add a reset button that resets the timer
