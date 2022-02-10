@@ -102,8 +102,13 @@ timerApp.countdown = function() {
     }, 100); // Temporarily changed from 1000ms for testing purposes
 }
 
+// This will be the pause function eventually I hope
+timerApp.resumeButtonEl.style.display = 'none'; 
 // Add a pause button that pauses the timer
+timerApp.pauseButtonEl.addEventListener('click', function() {
 
+    timerApp.resumeButtonEl.style.display = 'inline-block'; 
+}); 
 
 // Reset button stops and resets the timer
 timerApp.resetButtonEl.addEventListener('click', function() {
