@@ -7,7 +7,7 @@ timerApp.beforeCare = [
     'Great work',
     'Excellent work',
     'You did great',
-    'Nice productivity', 
+    'Great productivity', 
     'What a great work session',
     'Incredible job', 
     'Nice work', 
@@ -132,16 +132,16 @@ timerApp.countdown = function() {
             // Once seconds reaches 0, deduct 1 from minutes
             if (timerApp.minutes > 0) {
                 timerApp.minutes--;
+                // Reset seconds to 60
+                timerApp.seconds = 60; 
             // Do not deduct from minutes if >= 0 
             } else {
                 timerApp.minutes = timerApp.minutes; 
             }
-            // Reset seconds to 60
-            timerApp.seconds = 60; 
             // Display updated minutes count
             timerApp.minutesEl.textContent = `${timerApp.minutes}`;
     
-            if (timerApp.minutes < 1) {
+            if (timerApp.minutes === 0 && timerApp.seconds === 0) {
                 // Stop counting down once time runs out
                 clearInterval(interval);
                 // Hide pause button
