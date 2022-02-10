@@ -40,16 +40,12 @@ timerApp.care = [
     'compliment yourself in the mirror', 
     'lie down for a bit'
 ]
-// Select a random suggestion that is printed when the timer reaches zero
 
-timerApp.init = function() {
-    console.log("Sup girl");
-    // What should go in here??
-}
-
-// Initialize seconds and minutes
+// Seconds and minutes
 timerApp.seconds = 0;
 timerApp.minutes = 0;
+timerApp.storedSeconds = 0;
+timerApp.storedMinutes = 0;
 
 // Seconds and minutes display
 timerApp.secondsEl = document.querySelector('#seconds');
@@ -74,24 +70,39 @@ timerApp.formEl.addEventListener('submit', function(event) {
     timerApp.minutes = timerApp.timeInputEl.value - 1; 
     // Run countdown function
     timerApp.countdown(); 
+    // Hide form input 
+    timerApp.formEl.style.display = 'none'; 
 }); 
 
-// This will be the pause function eventually I hope
-timerApp.resumeButtonEl.style.display = 'none';
-// Add a pause button that pauses the timer
-timerApp.pauseButtonEl.addEventListener('click', function () {
-
+// Pause button stops the timer and stores the remaining minutes and seconds
+timerApp.pauseButtonEl.addEventListener('click', function() {
+    // Store current minutes and seconds into a new variable
+    timerApp.storedSeconds = timerApp.seconds;
+    timerApp.storedMinutes = timerApp.minutes; 
     timerApp.resumeButtonEl.style.display = 'inline-block';
+    // Clear the interval
+    clearInterval(interval);
+    // Hide pause button
+    timerApp.pauseButtonEl.style.display = 'none';
 });
 
-// Reset button stops and resets the timer
-timerApp.resetButtonEl.addEventListener('click', function () {
-    clearInterval(interval);
-    timerApp.seconds = 0;
-    timerApp.secondsEl.textContent = `${timerApp.seconds}`;
-    timerApp.minutesEl.textContent = `${timerApp.minutes}`;
-    timerApp.beforeCareEl.textContent = ``;
-    timerApp.careEl.textContent = ``;
+// Resume button resumes the timer after pausing
+timerApp.resumeButtonEl.addEventListener('click', function() {
+    // Put stored minutes & seconds back then reset
+    timerApp.seconds = timerApp.storedSeconds; 
+    timerApp.minutes = timerApp.storedMinutes;
+    timerApp.storedSeconds = 0;
+    timerApp.storedMinutes = 0; 
+    // Start timer again
+    timerApp.countdown(); 
+    // Hide resume button and show pause button
+    timerApp.resumeButtonEl.style.display = 'none';
+    timerApp.pauseButtonEl.style.display = 'inline-block';
+}); 
+
+// Reset button reloads the page
+timerApp.resetButtonEl.addEventListener('click', function() {
+    window.location.reload(); 
 }); 
 
 // Array randomizer function
@@ -102,6 +113,10 @@ timerApp.arrayRandomizer = function (array) {
 
 // Timer countdown function
 timerApp.countdown = function() {
+    // Show control buttons
+    timerApp.pauseButtonEl.style.display = 'inline-block';
+    timerApp.resetButtonEl.style.display = 'inline-block';
+
     interval = setInterval(function() {
         // This code executes every second (or 1000ms, specified below)
         timerApp.seconds--; 
@@ -124,6 +139,8 @@ timerApp.countdown = function() {
             if (timerApp.minutes < 1) {
                 // Stop counting down once time runs out
                 clearInterval(interval);
+                // Hide pause button
+                timerApp.pauseButtonEl.style.display = 'none';
                 // Randomize self-care suggestion
                 const beforeCareSuggest = timerApp.arrayRandomizer(timerApp.beforeCare);
                 const careSuggest = timerApp.arrayRandomizer(timerApp.care);
@@ -134,7 +151,5 @@ timerApp.countdown = function() {
                 document.querySelector('audio').play();
             }
         }
-    }, 100); // Temporarily changed from 1000ms for testing purposes
+    }, 1000); // Temporarily changed from 1000ms for testing purposes
 }
-
-timerApp.init(); 
