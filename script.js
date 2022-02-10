@@ -7,10 +7,11 @@ timerApp.beforeCare = [
     'Great work',
     'Excellent work',
     'You did great',
-    'Great productivity', 
     'What a great work session',
     'Incredible job', 
     'Nice work', 
+    'Amazing', 
+    'Fantastic work'
 ]
 
 // Array containing self care suggestions
@@ -33,7 +34,7 @@ timerApp.care = [
     'enjoy a cup of coffee', 
     'have dessert',  
     'watch a funny video', 
-    'enjoy a baked good', 
+    'enjoy a baked treat', 
     'order in your favourite food',
     'thank yourself for working so hard',
     'listen to a podcast',
@@ -43,7 +44,8 @@ timerApp.care = [
     'lie down for a bit',
     'breathe some fresh air',
     'do some yoga',
-    'meditate'
+    'meditate',
+    'look at some memes'
 ]
 
 // Seconds and minutes
@@ -53,6 +55,7 @@ timerApp.storedSeconds = 0;
 timerApp.storedMinutes = 0;
 
 // Seconds and minutes display
+timerApp.timerEl = document.querySelector('#timer-info'); 
 timerApp.secondsEl = document.querySelector('#seconds');
 timerApp.minutesEl = document.querySelector('#minutes');
 // Form elements
@@ -111,7 +114,7 @@ timerApp.resetButtonEl.addEventListener('click', function() {
 }); 
 
 // Array randomizer function
-timerApp.arrayRandomizer = function (array) {
+timerApp.arrayRandomizer = function(array) {
     const arrayIndex = Math.floor(Math.random() * array.length);
     return array[arrayIndex];
 }
@@ -146,6 +149,8 @@ timerApp.countdown = function() {
                 clearInterval(interval);
                 // Hide pause button
                 timerApp.pauseButtonEl.style.display = 'none';
+                // Hide timer info
+                timerApp.timerEl.style.display = 'none';
                 // Randomize self-care suggestion
                 const beforeCareSuggest = timerApp.arrayRandomizer(timerApp.beforeCare);
                 const careSuggest = timerApp.arrayRandomizer(timerApp.care);

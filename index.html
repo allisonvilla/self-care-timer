@@ -21,16 +21,19 @@
                 <p>Set a timer for your work period below then receive a self-care suggestion on how to spend your hard-earned break once it's done. 😊</p>
             </div> <!-- END .top -->
 
-            <!-- Timer Info -->
-            <div class="timer-info">
-                <h2><span id="minutes">0</span> minutes and <span id="seconds">0</span> seconds left</h2>
+            <!-- Info Display -->
+            <div class="info-display">
+                <h2 id="timer-info"><span id="minutes">0</span> minutes and <span id="seconds">0</span> seconds left</h2>
+                <h2 id="self-care"><span id="care-starter"></span><span id="care-suggest"></span></h2>
             </div> <!-- END .timer-info -->
 
             <!-- Timer Input Form -->
             <form>
                 <label for="time-input">How many minutes will your focus-time be?</label>
-                <input type="number" name="time-input" id="time-input" min="1" required>
-                <button id="time-btn">Start Timer</button>
+                <div class="input-and-button">
+                    <input type="number" name="time-input" id="time-input" min="1" required>
+                    <button id="time-btn">Start Timer</button>
+                </div> <!-- END .input-and-button -->
             </form>
 
             <!-- Control Buttons -->
@@ -39,11 +42,6 @@
                 <button id="resume-btn">Resume Timer</button>
                 <button id="reset-btn">Reset Timer</button>
             </div> <!-- END .control-buttons -->
-
-            <!-- Self Care Suggestion -->
-            <div class="self-care">
-                <h2><span id="care-starter"></span><span id="care-suggest"></span></h2>
-            </div> <!-- END .self-care -->
         </div> <!-- END .wrapper -->
     </main>
 
