@@ -170,7 +170,8 @@ timerApp.countdown = function() {
             } else {
                 timerApp.minutes = timerApp.minutes; 
             }
-            // Display updated minutes count
+            // Display updated count
+            timerApp.secondsEl.textContent = `${timerApp.seconds}`; 
             timerApp.minutesEl.textContent = `${timerApp.minutes}`;
     
             if (timerApp.minutes === 0 && timerApp.seconds === 0) {
