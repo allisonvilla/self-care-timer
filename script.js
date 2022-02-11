@@ -20,9 +20,9 @@ timerApp.beforeCare = [
     'Let\'s go',
     'Woohoo',
     'Alright',
-    'Right on',
     'You made that look easy',
-    'You\'re crushing this'
+    'You\'re crushing this',
+    'Good job'
 ]
 
 // Array containing self care suggestions
@@ -65,16 +65,19 @@ timerApp.care = [
     'put on a face mask',
     'read a good book',
     'spend some time in the great outdoors',
-    'try eating something new',
+    'try a new dish',
     'practice gratitude', 
     'hug someone',
     'hang out with a loved one',
-    'listen to music',
+    'blast some music',
     'watch a comedy special',
     'do some stretches',
     'tell someone you appreciate them',
     'relax', 
-    'watch cute animal vids'
+    'watch some cute animal videos', 
+    'treat yo\'self',
+    'do some journaling',
+    'play Wordle'
 ]
 
 // Seconds and minutes
