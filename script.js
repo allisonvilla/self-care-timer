@@ -12,7 +12,17 @@ timerApp.beforeCare = [
     'Nice work', 
     'Amazing', 
     'Fantastic work',
-    'You got this'
+    'You got this',
+    'Way to go',
+    'Bravo',
+    'Well done',
+    'Hooray',
+    'Let\'s go',
+    'Woohoo',
+    'Alright',
+    'Right on',
+    'You made that look easy',
+    'You\'re crushing this'
 ]
 
 // Array containing self care suggestions
@@ -46,7 +56,25 @@ timerApp.care = [
     'breathe some fresh air',
     'do some yoga',
     'meditate',
-    'look at some memes'
+    'look at some memes', 
+    'eat something delicious',
+    'relax your shoulders', 
+    'eat some fruit',
+    'enjoy something sweet',
+    'watch a good movie',
+    'put on a face mask',
+    'read a good book',
+    'spend some time in the great outdoors',
+    'try eating something new',
+    'practice gratitude', 
+    'hug someone',
+    'hang out with a loved one',
+    'listen to music',
+    'watch a comedy special',
+    'do some stretches',
+    'tell someone you appreciate them',
+    'relax', 
+    'watch cute animal vids'
 ]
 
 // Seconds and minutes
