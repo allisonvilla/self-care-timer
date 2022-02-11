@@ -26,7 +26,12 @@ body {
     height: 100vh; 
     display: flex; 
     flex-direction: column; 
-    background-color: #82C0CC;
+    /* background-color: #82C0CC; */
+}
+
+main {
+    background-image: linear-gradient(to top, #82C0CC, #EDE7E3);
+    background-repeat: no-repeat;
 }
 
 .wrapper {
@@ -191,7 +196,7 @@ a {
 
 a:hover,
 a:focus {
-    border-bottom: 2px solid #16697A;
+    border-bottom: 2px solid #82C0CC;
 }
 
 /* Media Queries */

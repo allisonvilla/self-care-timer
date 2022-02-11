@@ -11,7 +11,8 @@ timerApp.beforeCare = [
     'Incredible job', 
     'Nice work', 
     'Amazing', 
-    'Fantastic work'
+    'Fantastic work',
+    'You got this'
 ]
 
 // Array containing self care suggestions
