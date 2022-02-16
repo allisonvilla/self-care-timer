@@ -62,7 +62,7 @@ timerApp.care = [
     'eat some fruit',
     'enjoy something sweet',
     'watch a good movie',
-    'put on a face mask',
+    'put on a (skincare) face mask',
     'read a good book',
     'spend some time in the great outdoors',
     'try a new dish',
@@ -85,65 +85,66 @@ timerApp.seconds = 0;
 timerApp.minutes = 0;
 timerApp.storedSeconds = 0;
 timerApp.storedMinutes = 0;
-
 // Seconds and minutes display
-timerApp.timerEl = document.querySelector('#timer-info'); 
+timerApp.timerEl = document.querySelector('#timer-info');
 timerApp.secondsEl = document.querySelector('#seconds');
 timerApp.minutesEl = document.querySelector('#minutes');
-// Form elements
-timerApp.formEl = document.querySelector('form'); 
-timerApp.timeInputEl = document.querySelector('#time-input');
-timerApp.timeButtonEl = document.querySelector('#time-btn');
 // Control buttons
-timerApp.pauseButtonEl = document.querySelector('#pause-btn');  
+timerApp.pauseButtonEl = document.querySelector('#pause-btn');
 timerApp.resumeButtonEl = document.querySelector('#resume-btn');
 timerApp.resetButtonEl = document.querySelector('#reset-btn');
 // Self-care suggestion
 timerApp.beforeCareEl = document.querySelector('#care-starter');
 timerApp.careEl = document.querySelector('#care-suggest');
 
-// Use form to store timer duration from user then run countdown() on submit
-timerApp.formEl.addEventListener('submit', function(event) {
-    event.preventDefault(); 
-    timerApp.seconds = 60; 
-    // Store user's time input into minutes variable
-    timerApp.minutes = timerApp.timeInputEl.value - 1; 
-    // Run countdown function
-    timerApp.countdown(); 
-    // Hide form input 
-    timerApp.formEl.style.display = 'none'; 
-}); 
+timerApp.init = function() {
+    // Form elements
+    timerApp.formEl = document.querySelector('form');
+    timerApp.timeInputEl = document.querySelector('#time-input');
+    timerApp.timeButtonEl = document.querySelector('#time-btn');
+    // Use form to store timer duration from user then run countdown() on submit
+    timerApp.formEl.addEventListener('submit', function (event) {
+        event.preventDefault();
+        timerApp.seconds = 60;
+        // Store user's time input into minutes variable
+        timerApp.minutes = timerApp.timeInputEl.value - 1;
+        // Run countdown function
+        timerApp.countdown();
+        // Hide form input 
+        timerApp.formEl.style.display = 'none';
+    });
 
-// Pause button stops the timer and stores the remaining minutes and seconds
-timerApp.pauseButtonEl.addEventListener('click', function() {
-    // Store current minutes and seconds into a new variable
-    timerApp.storedSeconds = timerApp.seconds;
-    timerApp.storedMinutes = timerApp.minutes; 
-    timerApp.resumeButtonEl.style.display = 'inline-block';
-    // Clear the interval
-    clearInterval(interval);
-    // Hide pause button
-    timerApp.pauseButtonEl.style.display = 'none';
-});
+    // Pause button stops the timer and stores the remaining minutes and seconds
+    timerApp.pauseButtonEl.addEventListener('click', function () {
+        // Store current minutes and seconds into a new variable
+        timerApp.storedSeconds = timerApp.seconds;
+        timerApp.storedMinutes = timerApp.minutes;
+        timerApp.resumeButtonEl.style.display = 'inline-block';
+        // Clear the interval
+        clearInterval(interval);
+        // Hide pause button
+        timerApp.pauseButtonEl.style.display = 'none';
+    });
 
-// Resume button resumes the timer after pausing
-timerApp.resumeButtonEl.addEventListener('click', function() {
-    // Put stored minutes & seconds back then reset
-    timerApp.seconds = timerApp.storedSeconds; 
-    timerApp.minutes = timerApp.storedMinutes;
-    timerApp.storedSeconds = 0;
-    timerApp.storedMinutes = 0; 
-    // Start timer again
-    timerApp.countdown(); 
-    // Hide resume button and show pause button
-    timerApp.resumeButtonEl.style.display = 'none';
-    timerApp.pauseButtonEl.style.display = 'inline-block';
-}); 
+    // Resume button resumes the timer after pausing
+    timerApp.resumeButtonEl.addEventListener('click', function () {
+        // Put stored minutes & seconds back then reset
+        timerApp.seconds = timerApp.storedSeconds;
+        timerApp.minutes = timerApp.storedMinutes;
+        timerApp.storedSeconds = 0;
+        timerApp.storedMinutes = 0;
+        // Start timer again
+        timerApp.countdown();
+        // Hide resume button and show pause button
+        timerApp.resumeButtonEl.style.display = 'none';
+        timerApp.pauseButtonEl.style.display = 'inline-block';
+    });
 
-// Reset button reloads the page
-timerApp.resetButtonEl.addEventListener('click', function() {
-    window.location.reload(); 
-}); 
+    // Reset button reloads the page
+    timerApp.resetButtonEl.addEventListener('click', function () {
+        window.location.reload();
+    }); 
+}
 
 // Array randomizer function
 timerApp.arrayRandomizer = function(array) {
@@ -196,3 +197,5 @@ timerApp.countdown = function() {
         }
     }, 1000);
 }
+
+timerApp.init();
